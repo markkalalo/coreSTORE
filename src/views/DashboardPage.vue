@@ -13,8 +13,6 @@
             <DashboardBoxComponent title="Total"/>
             <DashboardBoxComponent title="Total"/>
             <DashboardBoxComponent title="Total"/>
-            
-           
           </div>
         </div>
       </div>
@@ -23,7 +21,7 @@
 </template>
 
 <script>
-import SidebarComponent from '../components/SidebarComponent.vue';
+import SidebarComponent from '../components/MainSideBarComponent.vue';
 import ModuleTitleBarComponent from '../components/ModuleTitleBarComponent.vue';
 import DashboardBoxComponent from '../components/DashboardBoxComponent.vue';
 
