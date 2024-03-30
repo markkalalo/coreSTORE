@@ -21,7 +21,6 @@
           <li class="active"><a href="#">Inventory 1</a></li>
           <li><a href="#">Inventory 2</a></li>
           <li><a href="#">Inventory 3</a></li>
-          <li><a href="#">Inventory 4</a></li>
         </ul>
 
         <li @click="toggleSubMenu('fulfillment')" :class="{ 'active': activeMenu === 'fulfillment' }" data-toggle="collapse" data-target="#fulfillment" :aria-expanded="activeMenu === 'fulfillment' ? 'true' : 'false'" class="collapsed">
