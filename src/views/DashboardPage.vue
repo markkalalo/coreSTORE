@@ -9,42 +9,11 @@
         <div class="main-dashboard">
           <ModuleTitleBarComponent title="Dashboard" />
           <div class="row p-3">
+            <DashboardBoxComponent title="Total"/>
+            <DashboardBoxComponent title="Total"/>
+            <DashboardBoxComponent title="Total"/>
+            <DashboardBoxComponent title="Total"/>
             
-            <div class="col-md-3 col-12 p-2">
-              <div class="dashboard-box">
-                <div class="total">6</div>
-                <div class="dashboard-box-caption">
-                  Total Sales
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3 col-12 p-2">
-              <div class="dashboard-box">
-                <div class="total">6</div>
-                <div class="dashboard-box-caption">
-                  Total Sales
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3 col-12 p-2">
-              <div class="dashboard-box">
-                <div class="total">6</div>
-                <div class="dashboard-box-caption">
-                  Total Sales
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3 col-12 p-2">
-              <div class="dashboard-box">
-                <div class="total">6</div>
-                <div class="dashboard-box-caption">
-                  Total Sales
-                </div>
-              </div>
-            </div>
            
           </div>
         </div>
@@ -56,11 +25,13 @@
 <script>
 import SidebarComponent from '../components/SidebarComponent.vue';
 import ModuleTitleBarComponent from '../components/ModuleTitleBarComponent.vue';
+import DashboardBoxComponent from '../components/DashboardBoxComponent.vue';
 
 export default {
   components: {
     SidebarComponent,
-    ModuleTitleBarComponent
+    ModuleTitleBarComponent,
+    DashboardBoxComponent
   },
   // main page logic here 
 };
@@ -69,13 +40,7 @@ export default {
 <style scoped>
 
 
-.dashboard-box{
-  -webkit-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.23);
--moz-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.23);
-box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.23);
-padding: 30px;
-background-color:#fff;
-}
+
 
 
 /* main page styles here */
