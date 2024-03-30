@@ -36,11 +36,6 @@ export default {
 </script>
 
 <style scoped>
-
-
-
-
-
 /* main page styles here */
 body, html, .container-fluid, .row, .col-md-10 {
   overflow-x: hidden;
@@ -49,8 +44,7 @@ body, html, .container-fluid, .row, .col-md-10 {
   width: 100%;
 }
 
-
-.header{
-    background-color: aqua;
-  }
+.header {
+  background-color: aqua;
+}
 </style>
