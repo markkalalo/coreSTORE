@@ -216,7 +216,7 @@ export default {
   .nav-side-menu {
     position: relative;
     width: 100%;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
   .nav-side-menu .toggle-btn {
     display: block;
