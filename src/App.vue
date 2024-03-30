@@ -14,6 +14,9 @@ export default {
 <style scoped> /* Add your global styles here if needed */
 *{
   font-weight: 300;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
   background-color: #fff;
