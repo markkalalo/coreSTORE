@@ -15,7 +15,7 @@ export default {
   components: {
     SidebarComponent
   },
-  // main page logic here
+  // main page logic here 
 };
 </script>
 

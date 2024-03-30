@@ -39,6 +39,7 @@
         <ul class="sub-menu collapse" id="reporting" v-if="activeMenu === 'reporting'">
           <li>Reporting 1</li>
           <li>Reporting 2</li>
+          <li>Reporting 3</li>
         </ul>
 
         <li>
