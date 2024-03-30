@@ -4,7 +4,7 @@
     <!-- main content here -->
  
   <div class="main-dashboard">
-   
+   Main Dashboard
   </div>
 </template>
 
