@@ -4,6 +4,7 @@ import LoginPage from './views/LoginPage.vue';
 import DashboardPage from './views/DashboardPage.vue'; 
 import ResetPasswordPage from './views/ResetPasswordPage.vue';
 import NotFound404Page from './views/NotFound404Page.vue'; 
+import ItemPage from './views/ItemPage.vue';
 
 // Define routes
 const routes = [
@@ -32,6 +33,13 @@ const routes = [
   {
     path: '/:catchAll(.*)', // Matches any path
     component: NotFound404Page // Render your custom 404 page
+  },
+
+  // Item Page
+  {
+    path: '/item',
+    name: 'item', 
+    component: ItemPage 
   }
 ];
 

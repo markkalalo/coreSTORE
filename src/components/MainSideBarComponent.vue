@@ -8,17 +8,20 @@
   
     <div class="menu-list">
       <ul id="menu-content" :class="menuClass">
-        <li>
+        <router-link to="/dashboard">
+          <li>
           <a href="#">
             <i class="fa fa-dashboard fa-lg"></i> Dashboard
           </a>
         </li>
+        </router-link>
 
         <li @click="toggleSubMenu('inventory')" :class="{ 'active': activeMenu === 'inventory' }" data-toggle="collapse" data-target="#inventory" :aria-expanded="activeMenu === 'inventory' ? 'true' : 'false'" class="collapsed">
           <a href="#"><i class="fa fa-gift fa-lg"></i> Inventory <span class="arrow"></span></a>
         </li>
         <ul class="sub-menu collapse" id="inventory" v-if="activeMenu === 'inventory'">
-          <li class="active"><a href="#">Inventory 1</a></li>
+          <!-- <li class="active"><a href="#">Inventory 1</a></li> -->
+          <router-link to="/item"><li><a href="#">Items</a></li></router-link>
           <li><a href="#">Inventory 2</a></li>
           <li><a href="#">Inventory 3</a></li>
         </ul>
