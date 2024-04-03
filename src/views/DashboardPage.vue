@@ -31,12 +31,10 @@ export default {
     ModuleTitleBarComponent,
     DashboardBoxComponent
   },
-  // main page logic here 
 };
 </script>
 
 <style scoped>
-/* main page styles here */
 body, html, .container-fluid, .row, .col-md-10 {
   overflow-x: hidden;
 }

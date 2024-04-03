@@ -15,6 +15,10 @@
                   <label for="email">Email</label>
                   <input type="email" class="form-control" placeholder="Email" v-model="email" required>
                 </div>
+                <div class="d-flex mb-2 mb-0 align-items-center">
+                
+                <span class="ml-auto"><router-link to="/" class="forgot-pass"> Go back to Login</router-link></span>
+              </div>
                 <button type="submit" class="btn btn-block btn-primary">Reset Password</button>
               </form>
             </div>

@@ -12,7 +12,7 @@ export default {
   props: {
     total: {
       type: Number,
-      default: 0 // Default value if total is not provided
+      default: 0 
     },
     title: {
       type: String,
@@ -27,16 +27,18 @@ export default {
   box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.23);
   padding: 30px;
   background-color: #fff;
-  border-radius: 5px; /* Adding border radius for a rounded appearance */
+  border-radius: 5px; 
 }
 
 .total {
-  font-size: 24px; /* Increase font size for total */
-  font-weight: bold; /* Make total text bold */
+  font-size: 24px; 
+  font-weight: bold; 
 }
 
 .dashboard-box-caption {
-  margin-top: 10px; /* Add some spacing between total and caption */
-  font-size: 16px; /* Adjust caption font size */
+  margin-top: 10px; 
+  font-size: 16px; 
 }
 </style>
+
+

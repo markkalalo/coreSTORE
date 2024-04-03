@@ -36,11 +36,44 @@
 
 <script>
 import ButtonComponent from '../components/ButtonComponent.vue';
+
 export default {
-    name: 'LoginPage',
-    components: {
-      ButtonComponent
-    },
+  name: 'LoginPage',
+  components: {
+    ButtonComponent
+  },
+  data() {
+    return {
+      username: '',
+      password: ''
+      // rememberMe: false
+    };
+  },
+  methods: {
+    login() {
+      if (this.username === 'admin' && this.password === 'admin') {
+        // Redirect to dashboard
+        this.$router.push('/dashboard');
+      } else {
+        // Handle invalid login
+        alert('Invalid username or password');
+      }
+    }
+  }
+};
+</script>
+
+<!-- THIS CODE BELOW IS USING AN AXIOS FOR BACKEND TESTING -->
+<!-- NOTE: Replace "API HERE" with the correct backend endpoint for logging in -->
+
+<!-- <script>
+import ButtonComponent from '../components/ButtonComponent.vue';
+
+export default {
+  name: 'LoginPage',
+  components: {
+    ButtonComponent
+  },
   data() {
     return {
       username: '',
@@ -49,15 +82,39 @@ export default {
     };
   },
   methods: {
-    login() {
-      // Handle login logic here
+    async login() {
+      try {
+        
+        const response = await fetch(' API HERE ', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: this.username,
+            password: this.password
+          })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          this.$router.push('/dashboard');
+        } else {
+          alert(data.message || 'Invalid username or password');
+        }
+      } catch (error) {
+        console.error('Login error:', error);
+        alert('An error occurred while logging in.');
+      }
     }
   }
 };
-</script>
+</script> -->
+
 
 <style scoped>
-/* Add your custom CSS styles here */
+/* Custom CSS styles  */
 body {
   background-color: #fff;
 }
@@ -153,10 +210,10 @@ h2 {
   background-position: center;
 }
 
-/* .half a {
+.half a {
   color: #888;
   text-decoration: underline;
-} */
+}
 
 .half .btn {
   height: 45px;
@@ -171,9 +228,9 @@ h2 {
 }
 
 .half .forgot-pass {
-  position: relative;
-  top: 2px;
-  font-size: 14px;
+  /* position: relative;
+  top: 2px; */
+  /* font-size: 14px; */
 }
 
 .control {
@@ -277,4 +334,6 @@ padding: 15px;
   margin-top: -60px;
   }
 }
+
+
 </style>

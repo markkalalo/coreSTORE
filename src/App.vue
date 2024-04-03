@@ -11,7 +11,7 @@ export default {
 }
 </script>
 
-<style scoped> /* Add your global styles here if needed */
+<style scoped>
 *{
   font-weight: 300;
   margin: 0;
@@ -25,5 +25,4 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
 }
-
 </style>
