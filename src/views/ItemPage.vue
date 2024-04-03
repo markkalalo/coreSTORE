@@ -10,7 +10,10 @@
             <ModuleTitleBarComponent title="Items" />
             <div class="row p-3">
               <!-- This is the page content -->
+              <!-- 
 
+                On going
+               -->
 
                 <!-- end of page content -->
             </div>

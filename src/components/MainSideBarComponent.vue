@@ -20,7 +20,6 @@
           <a href="#"><i class="fa fa-gift fa-lg"></i> Inventory <span class="arrow"></span></a>
         </li>
         <ul class="sub-menu collapse" id="inventory" v-if="activeMenu === 'inventory'">
-          <!-- <li class="active"><a href="#">Inventory 1</a></li> -->
           <router-link to="/item"><li><a href="#">Items</a></li></router-link>
           <li><a href="#">Inventory 2</a></li>
           <li><a href="#">Inventory 3</a></li>
@@ -131,19 +130,6 @@ export default {
   margin: 0px;
   line-height: 35px;
   cursor: pointer;
-  /*    
-    .collapsed{
-       .arrow:before{
-                 font-family: FontAwesome;
-                 content: "\f053";
-                 display: inline-block;
-                 padding-left:10px;
-                 padding-right: 10px;
-                 vertical-align: middle;
-                 float:right;
-            }
-     }
-*/
 }
 .nav-side-menu ul :not(collapsed) .arrow:before,
 .nav-side-menu li :not(collapsed) .arrow:before {
@@ -219,7 +205,6 @@ export default {
   .nav-side-menu {
     position: relative;
     width: 100%;
-    /* margin-bottom: 10px; */
   }
   .nav-side-menu .toggle-btn {
     display: block;

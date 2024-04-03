@@ -6,7 +6,6 @@
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7">
-  
               <!-- <h3>Reset Password</h3> -->
               <img class="mb-2" src="../assets/coreSTORE.jpeg" alt="corestore" width="50%">
               <p class="mb-1">Enter your email associated with the account to reset your password.</p>
