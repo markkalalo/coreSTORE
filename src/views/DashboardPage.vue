@@ -42,7 +42,4 @@ body, html, .container-fluid, .row, .col-md-10 {
   width: 100%;
 }
 
-.header {
-  background-color: aqua;
-}
 </style>

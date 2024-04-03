@@ -42,9 +42,6 @@
   .main-content {
     width: 100%;
   }
-  
-  .header {
-    background-color: aqua;
-  }
+
   </style>
   
