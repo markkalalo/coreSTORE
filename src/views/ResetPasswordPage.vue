@@ -44,7 +44,7 @@
   </script>
   
   <style scoped>
-  /* Add your custom CSS styles here */
+
   body {
     background-color: #fff;
   }

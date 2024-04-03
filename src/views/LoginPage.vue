@@ -10,6 +10,7 @@
             <!-- <h3>Login to <strong>coreSTORE</strong></h3> -->
             <img class="mb-2" src="../assets/coreSTORE.jpeg" alt="corestore" width="50%">
             <p class="mb-1">Welcome to coreSTORE. To continue, login using your username and password.</p>
+            
             <!-- <p>To continue, login using your username and password.</p> -->
             <form @submit.prevent="login">
               <div class="form-group first">
@@ -26,48 +27,47 @@
               </div>
               <!-- <button type="submit" class="btn btn-block btn-primary">Log In</button> -->
               <ButtonComponent primary to>Log In</ButtonComponent>
+              <!-- Display error message -->
+            <p v-if="errorMessage" class="error-message text-center">{{ errorMessage }}</p>
             </form>
+            
           </div>
+          
         </div>
+        
       </div>
     </div>
   </div>
 </template>
 
+<!-- BELOW IS THE CODE THAT UTILIZES AXIOS TO INTERACT WITH A FAKE RESTFUL API -->
+<!-- Follow the steps below to install Axios and set up the fake API using JSON Server -->
+
+<!-- Step 1: Install Axios -->
+<!-- Open your terminal or command prompt and navigate to the current directory of your project -->
+<!-- Run the following command to install Axios: -->
+<!-- npm install axios -->
+
+<!-- Step 2: Set up the Fake API using JSON Server -->
+<!-- JSON Server allows you to quickly create a RESTful API with fake data for testing and prototyping -->
+
+<!-- a. Install JSON Server globally (if not already installed) -->
+<!-- Run the following command in your terminal: -->
+<!-- npm install -g json-server -->
+
+<!-- b. Create a db.json file in the root directory of your project -->
+<!-- Define the structure of your fake data in this file -->
+
+<!-- c. Start JSON Server and watch the db.json file for changes -->
+<!-- Run the following command in your terminal: -->
+<!-- npx json-server --watch db.json -->
+
+<!-- Now, you have successfully set up Axios to interact with your fake RESTful API using JSON Server -->
+
 <script>
 import ButtonComponent from '../components/ButtonComponent.vue';
-
-export default {
-  name: 'LoginPage',
-  components: {
-    ButtonComponent
-  },
-  data() {
-    return {
-      username: '',
-      password: ''
-      // rememberMe: false
-    };
-  },
-  methods: {
-    login() {
-      if (this.username === 'admin' && this.password === 'admin') {
-        // Redirect to dashboard
-        this.$router.push('/dashboard');
-      } else {
-        // Handle invalid login
-        alert('Invalid username or password');
-      }
-    }
-  }
-};
-</script>
-
-<!-- THIS CODE BELOW IS USING AN AXIOS FOR BACKEND TESTING -->
-<!-- NOTE: Replace "API HERE" with the correct backend endpoint for logging in -->
-
-<!-- <script>
-import ButtonComponent from '../components/ButtonComponent.vue';
+import axios from 'axios';
+import router from '../router';
 
 export default {
   name: 'LoginPage',
@@ -78,40 +78,33 @@ export default {
     return {
       username: '',
       password: '',
-      rememberMe: false
+      errorMessage: ""
     };
   },
   methods: {
     async login() {
       try {
-        
-        const response = await fetch(' API HERE ', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            username: this.username,
-            password: this.password
-          })
-        });
+        const RESTapiUrl = 'http://localhost:3000/users'; // npx json-server --watch db.json
+        const response = await axios.get(RESTapiUrl);
+        const users = response.data;
+        const matchedUser = users.find(user => user.username === this.username && user.password === this.password);
 
-        const data = await response.json();
-
-        if (data.success) {
-          this.$router.push('/dashboard');
+        if (matchedUser) {
+          router.push('/dashboard');
         } else {
-          alert(data.message || 'Invalid username or password');
+          this.errorMessage = 'Invalid username or password.';
+          // Clear error message after 3 seconds
+          setTimeout(() => {
+            this.errorMessage = '';
+          }, 3000);
         }
       } catch (error) {
-        console.error('Login error:', error);
-        alert('An error occurred while logging in.');
+        console.error('Error fetching users from db.json:', error);
       }
     }
   }
 };
-</script> -->
-
+</script>
 
 <style scoped>
 /* Custom CSS styles  */
@@ -227,11 +220,11 @@ h2 {
   box-shadow: none;
 }
 
-.half .forgot-pass {
-  /* position: relative;
-  top: 2px; */
-  /* font-size: 14px; */
-}
+/* .half .forgot-pass {
+   position: relative;
+  top: 2px; 
+  font-size: 14px;
+} */
 
 .control {
   display: block;
@@ -334,6 +327,9 @@ padding: 15px;
   margin-top: -60px;
   }
 }
-
+.error-message{
+  color: red;
+  font-weight: bold;
+}
 
 </style>

@@ -10,7 +10,6 @@
   </template>
   
   <script>
-  // Adjust the import path to match the location of ButtonComponent.vue
   import ButtonComponent from '../components/ButtonComponent.vue'; 
   
   export default {
@@ -21,7 +20,6 @@
     methods: {
       goToLoginPage() {
         // Implement the logic to navigate to the login page
-        // For example, if you are using Vue Router:
         this.$router.push('/');
       }
     }
@@ -29,7 +27,7 @@
   </script>
   
   <style scoped>
-  /* Add your custom CSS styles here */
+
   body {
     background-color: #fff;
     font-family: "Roboto", sans-serif;

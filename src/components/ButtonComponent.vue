@@ -42,9 +42,9 @@ export default {
 </script>
 
 <style scoped>
-/* Add button styles here */
+/*  button styles  */
 .btns {
-  /* Add base button styles */
+  /*  base button styles */
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
