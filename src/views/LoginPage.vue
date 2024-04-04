@@ -66,8 +66,9 @@
 
 <script>
 import ButtonComponent from '../components/ButtonComponent.vue';
-import axios from 'axios';
+// import axios from 'axios';
 import router from '../router';
+import AxiosInstance from '../api/axiosInstance'
 
 export default {
   name: 'LoginPage',
@@ -84,8 +85,8 @@ export default {
   methods: {
     async login() {
       try {
-        const RESTapiUrl = 'http://localhost:3000/users'; // npx json-server --watch db.json
-        const response = await axios.get(RESTapiUrl);
+        // const RESTapiUrl = 'http://localhost:3000/users'; // npx json-server --watch db.json
+        const response = await AxiosInstance.get("/users");
         const users = response.data;
         const matchedUser = users.find(user => user.username === this.username && user.password === this.password);
 
