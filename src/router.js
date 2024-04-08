@@ -5,6 +5,7 @@ import DashboardPage from './views/DashboardPage.vue';
 import ResetPasswordPage from './views/ResetPasswordPage.vue';
 import NotFound404Page from './views/NotFound404Page.vue'; 
 import ItemPage from './views/ItemPage.vue';
+import RegistrationPage from './views/RegistrationPage.vue';
 
 // Define routes
 const routes = [
@@ -40,6 +41,12 @@ const routes = [
     path: '/item',
     name: 'item', 
     component: ItemPage 
+  },
+  // Registration Page
+  {
+    path: '/registration',
+    name: 'registration', 
+    component: RegistrationPage 
   }
 ];
 

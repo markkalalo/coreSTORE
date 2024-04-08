@@ -22,7 +22,7 @@
                 <input type="password" class="form-control" placeholder="Password" v-model="password" required>
               </div>
               <div class="d-flex mb-2 mb-0 align-items-center">
-                
+                <span><router-link to="/registration" class="forgot-pass">Create an account</router-link></span>
                 <span class="ml-auto"><router-link to="/reset-password" class="forgot-pass">Reset Password?</router-link></span>
               </div>
               <!-- <button type="submit" class="btn btn-block btn-primary">Log In</button> -->
