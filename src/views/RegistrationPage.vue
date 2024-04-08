@@ -195,7 +195,7 @@
   
   .half a {
     color: #888;
-    text-decoration: underline;
+    /* text-decoration: underline; */
   }
   
   .half .btn {
