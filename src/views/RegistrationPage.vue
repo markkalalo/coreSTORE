@@ -7,77 +7,45 @@
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7">
               
-              <!-- <h3>Login to <strong>coreSTORE</strong></h3> -->
               <img class="mb-2" src="../assets/coreSTORE.jpeg" alt="corestore" width="50%">
               <p class="mb-2 mt-2">Welcome to coreSTORE! If you're new here, you'll need to register before accessing our services.</p>
               <p>Please fill out the following information to create your account:</p>
               
-              <!-- <p>To continue, login using your username and password.</p> -->
-              <form @submit.prevent="login">
+              <form @submit.prevent="register">
                 <div class="form-group first">
                   <label for="username">Username</label>
-                  <input type="text" class="form-control" placeholder="Username" v-model="username" required>
+                  <input type="text" class="form-control" placeholder="Username" v-model="registrationusername" required>
                 </div>
                 <div class="form-group last">
                   <label for="password">Password</label>
-                  <input type="password" class="form-control" placeholder="************" v-model="password" required>
+                  <input type="password" class="form-control" placeholder="************" v-model="registrationpassword" required>
                 </div>
                 <div class="form-group confirm">
-                  <label for="confirm-password">Confirm Password</label>
-                  <input type="password" class="form-control" placeholder="************" v-model="confirmpassword" required>
+                  <label for="confirmpassword">Confirm Password</label>
+                  <input type="password" class="form-control" placeholder="************" v-model="confirmPassword" required>
                 </div>
                 <div class="form-group customercode mb-1">
-                  <label for="customer-code">Once registered, your customer code will be provided during the onboarding process.</label>
-                  <input type="text" class="form-control" placeholder="Customer Code" v-model="customercode" required>
+                  <label for="customer-code">Customer Code</label>
+                  <input type="text" class="form-control" placeholder="Customer Code" v-model="customerCode" required>
                 </div>
                 <div class="d-flex mb-2 mb-0 align-items-center">
-                  
                   <span class="ml-auto">Already have an account? <router-link to="/" class="forgot-pass">Log in</router-link></span>
                 </div>
-                <!-- <button type="submit" class="btn btn-block btn-primary">Log In</button> -->
                 <ButtonComponent primary to>Submit</ButtonComponent>
                 <!-- Display error message -->
-              <p v-if="errorMessage" class="error-message text-center">{{ errorMessage }}</p>
+                <p v-if="errorMessage" class="error-message text-center">{{ errorMessage }}</p>
               </form>
-              
             </div>
-            
           </div>
-          
         </div>
       </div>
     </div>
   </template>
   
-  <!-- BELOW IS THE CODE THAT UTILIZES AXIOS TO INTERACT WITH A FAKE RESTFUL API -->
-  <!-- Follow the steps below to install Axios and set up the fake API using JSON Server -->
-  
-  <!-- Step 1: Install Axios -->
-  <!-- Open your terminal or command prompt and navigate to the current directory of your project -->
-  <!-- Run the following command to install Axios: -->
-  <!-- npm install axios -->
-  
-  <!-- Step 2: Set up the Fake API using JSON Server -->
-  <!-- JSON Server allows you to quickly create a RESTful API with fake data for testing and prototyping -->
-  
-  <!-- a. Install JSON Server globally (if not already installed) -->
-  <!-- Run the following command in your terminal: -->
-  <!-- npm install -g json-server -->
-  
-  <!-- b. Create a db.json file in the root directory of your project -->
-  <!-- Define the structure of your fake data in this file -->
-  
-  <!-- c. Start JSON Server and watch the db.json file for changes -->
-  <!-- Run the following command in your terminal: -->
-  <!-- npx json-server --watch db.json -->
-  
-  <!-- Now, you have successfully set up Axios to interact with your fake RESTful API using JSON Server -->
-  
   <script>
   import ButtonComponent from '../components/ButtonComponent.vue';
-  // import axios from 'axios';
+  import AxiosInstance from '../api/axiosInstance';
   import router from '../router';
-  import AxiosInstance from '../api/axiosInstance'
   
   export default {
     name: 'RegistrationPage',
@@ -86,37 +54,36 @@
     },
     data() {
       return {
-        username: '',
-        password: '',
-        confirmpassword: '',
-        errorMessage: ""
+        registrationusername: '',
+        registrationpassword: '',
+        confirmPassword: '',
+        customerCode: '',
+        errorMessage: ''
       };
     },
     methods: {
-      async login() {
+      async register() {
         try {
-          // const RESTapiUrl = 'http://localhost:3000/users'; // npx json-server --watch db.json
-          const response = await AxiosInstance.get("/users");
-          const users = response.data;
-          const matchedUser = users.find(user => user.username === this.username && user.password === this.password);
-  
-          if (matchedUser) {
-            router.push('/dashboard');
-          } else {
-            this.errorMessage = 'Invalid username or password.';
-            // Clear error message after 3 seconds
-            setTimeout(() => {
-              this.errorMessage = '';
-            }, 3000);
+          if (this.registrationpassword !== this.confirmPassword) {
+            this.errorMessage = 'Passwords do not match.';
+            return;
           }
+          const newUser = {
+            registrationusername: this.registrationusername,
+            registrationpassword: this.registrationpassword,
+            customerCode: this.customerCode
+          };
+          await AxiosInstance.post("/users", newUser);
+          router.push('/login');
         } catch (error) {
-          console.error('Error fetching users from db.json:', error);
+          console.error('Error registering user:', error);
+          this.errorMessage = 'An error occurred during registration.';
         }
       }
     }
   };
   </script>
-  
+
   <style scoped>
   /* Custom CSS styles  */
   body {

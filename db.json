@@ -3,12 +3,20 @@
     {
       "id": "1",
       "username": "admin1",
-      "password": "password1"
+      "password": "password1",
+      "customercode": "1234567890"
     },
     {
       "id": "2",
       "username": "admin2",
-      "password": "password2"
+      "password": "password2",
+      "customercode": "1234567890"
+    },
+    {
+      "id": "c64a",
+      "registrationusername": "asd",
+      "registrationpassword": "asd",
+      "customerCode": "asd"
     }
   ]
 }
