@@ -8,7 +8,7 @@ CoreStore is an ongoing project aimed at developing a comprehensive point of sal
 
 CoreStore's frontend is a user-friendly and efficient point of sale (POS) application currently under development.
 
-![CoreStore](./coreSTORE.jpeg)
+![CoreStore](./coreSTORE.png)
 
 ## Developer
 
